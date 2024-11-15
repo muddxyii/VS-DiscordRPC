@@ -47,9 +47,24 @@ public class DiscordRpcMod : ModSystem
 
     private string GetPlayerMode()
     {
-        // TODO: Get player mode (Eg. Survival, Creative)
+        // Get first/default online player
+        var player = _api.World?.AllOnlinePlayers?.FirstOrDefault();
+        if (player == null) return "Unknown";
         
-        return "Survival";
+        // Check the player's game mode
+        switch (player.WorldData.CurrentGameMode)
+        {
+            case EnumGameMode.Creative:
+                return "Creative";
+            case EnumGameMode.Survival:
+                return "Survival";
+            case EnumGameMode.Spectator:
+                return "Spectator";
+            case EnumGameMode.Guest:
+                return "Guest";
+            default:
+                return "Unknown";
+        }
     }
     
     private string GetPlayerState()
