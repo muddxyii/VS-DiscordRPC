@@ -65,4 +65,10 @@ public class DiscordRpcMod : ModSystem
         
         return 100;
     }
+
+    public override void Dispose()
+    {
+        _client.Dispose();
+        base.Dispose();
+    }
 }
