@@ -21,7 +21,7 @@
         <PropertyGroup>
             <ModFolder>$(AppData)\VintagestoryData\Mods\$(ProjectName)</ModFolder>
         </PropertyGroup>
-        <RemoveDir Directories="$(ModFolder" />
+        <RemoveDir Directories="$(ModFolder)" />
         <MakeDir Directories="$(ModFolder)" />
         <Copy SourceFiles="$(TargetDir)\VS-DiscordRPC.dll" DestinationFolder="$(ModFolder)" />
         <Copy SourceFiles="$(SolutionDir)\libraries\DiscordRPC.dll" DestinationFolder="$(ModFolder)" />
