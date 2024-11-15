@@ -31,7 +31,7 @@ public class DiscordRpcMod : ModSystem
 
         var presence = new RichPresence()
         {
-            Details = $"In {GetPlayerMode()} mode",
+            Details = $"In {GetPlayerMode()} Mode",
             State = GetPlayerState(),
             Assets = new Assets
             {
@@ -40,6 +40,7 @@ public class DiscordRpcMod : ModSystem
                 SmallImageKey = "gear_icon",
                 SmallImageText = $"Health: {GetPlayerHealth()}%",
             },
+            // TODO: Fix time tracking
             Timestamps = new Timestamps(DateTime.UtcNow),
         };
         _client.SetPresence(presence);
@@ -69,9 +70,13 @@ public class DiscordRpcMod : ModSystem
     
     private string GetPlayerState()
     {
-        // TODO: Get player count
-        
-        return "Playing Solo";
+        var onlinePlayers = _api.World?.AllOnlinePlayers;
+        if (onlinePlayers == null || onlinePlayers.Length == 0)
+        {
+            return "No Players Online";
+        }
+
+        return onlinePlayers.Length == 1 ? "Playing Solo" : $"Playing with {onlinePlayers.Length - 1} Others";
     }
     
     private int GetPlayerHealth()
