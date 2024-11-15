@@ -38,7 +38,7 @@ public class DiscordRpcMod : ModSystem
                 LargeImageKey = "game_icon",
                 LargeImageText = "Vintage Story",
                 SmallImageKey = "gear_icon",
-                SmallImageText = $"Health: {GetPlayerHealth()}%",
+                SmallImageText = $"Total Deaths: {GetPlayerDeaths()}",
             },
             // TODO: Fix time tracking
             Timestamps = new Timestamps(DateTime.UtcNow),
@@ -79,11 +79,13 @@ public class DiscordRpcMod : ModSystem
         return onlinePlayers.Length == 1 ? "Playing Solo" : $"Playing with {onlinePlayers.Length - 1} Others";
     }
     
-    private int GetPlayerHealth()
+    private int GetPlayerDeaths()
     {
         // TODO: Get player health
+        var player = _api.World?.AllOnlinePlayers?.FirstOrDefault();
+        if (player == null) return 0;
         
-        return 100;
+        return player.WorldData.Deaths;
     }
 
     public override void Dispose()
