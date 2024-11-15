@@ -5,9 +5,9 @@ namespace VS_DiscordRPC;
 
 public class DiscordRpcMod : ModSystem
 {
-    private DiscordRpcClient _client;
-    private ICoreAPI _api;
-    private const string APPLICATION_ID = "1306757937880109066";
+    private DiscordRpcClient _client = null!;
+    private ICoreAPI _api = null!;
+    private const string ApplicationId = "1306757937880109066";
     
     private DateTime _startTime;
 
@@ -24,7 +24,7 @@ public class DiscordRpcMod : ModSystem
 
     private void InitializeDiscordRpc()
     {
-        _client = new DiscordRpcClient(APPLICATION_ID);
+        _client = new DiscordRpcClient(ApplicationId);
         _client.Initialize();
         
         _api.Logger.Debug("[DiscordRPC] Rich Presence Initialized");
