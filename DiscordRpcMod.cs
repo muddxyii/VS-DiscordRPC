@@ -8,13 +8,18 @@ public class DiscordRpcMod : ModSystem
     private DiscordRpcClient _client;
     private ICoreAPI _api;
     private const string APPLICATION_ID = "1306757937880109066";
+    
+    private DateTime _startTime;
 
     public override void Start(ICoreAPI api)
     {
         _api = api;
         InitializeDiscordRpc();
+        
+        // Initialize the starting timestamp
+        _startTime = DateTime.UtcNow;
 
-        _api.Event.RegisterGameTickListener(UpdatePresence, 250);
+        _api.Event.RegisterGameTickListener(UpdatePresence, 1000);
     }
 
     private void InitializeDiscordRpc()
@@ -40,8 +45,7 @@ public class DiscordRpcMod : ModSystem
                 SmallImageKey = "gear_icon",
                 SmallImageText = $"Total Deaths: {GetPlayerDeaths()}",
             },
-            // TODO: Fix time tracking
-            Timestamps = new Timestamps(DateTime.UtcNow),
+            Timestamps = new Timestamps(_startTime),
         };
         _client.SetPresence(presence);
     }
@@ -81,7 +85,6 @@ public class DiscordRpcMod : ModSystem
     
     private int GetPlayerDeaths()
     {
-        // TODO: Get player health
         var player = _api.World?.AllOnlinePlayers?.FirstOrDefault();
         if (player == null) return 0;
         
