@@ -1,5 +1,5 @@
 # VS-DiscordRPC
-The mod that shows your Vintage Story activity in your Discord status with style! (aka the Discord Aesthetic Mod)
+The mod that shows your Vintage Story activity in your Discord status with style! *(aka the Discord Aesthetic Mod)*
 
 ## Features
 * **Game Mode Display**: Shows if you're in Survival, Creative, Spectator, or Guest mode.
