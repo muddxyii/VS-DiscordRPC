@@ -1,11 +1,13 @@
 {
-	"type": "code",
-	"name": "Discord Rich Presence",
-	"modid": "vs-discordrpc",
-	"version": "1.0.0",
-	"description": "Adds Discord Rich Presence support to Vintage Story",
-	"authors": ["Muddxyii"],
-	"dependencies": {
-		"game": "1.19.8"
-	}
+  "type": "code",
+  "name": "Discord Rich Presence",
+  "modid": "vs-discordrpc",
+  "version": "1.0.1",
+  "description": "Adds Discord Rich Presence support to Vintage Story",
+  "authors": [
+    "Muddxyii"
+  ],
+  "dependencies": {
+    "game": "1.20.4"
+  }
 }
