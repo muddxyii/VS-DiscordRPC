@@ -15,7 +15,7 @@ The mod that shows your Vintage Story activity in your Discord status with style
 
 ## Requirements:
 * **Discord**: (Why else would you install this mod?)
-* **Vintage Story 1.20.12+**: (Older versions are not supported.)
+* **Vintage Story 1.21.0+**: (Older versions are not supported.)
 * **Platform Compatibility**: Tested on Windows 11 *(Using MacOS or Linux? Let me know if it works!)*
 
 ## Support & Feedback
