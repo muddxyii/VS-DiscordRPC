@@ -1,31 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>VS_DiscordRPC</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="VintagestoryAPI">
-        <HintPath>libraries\VintagestoryAPI.dll</HintPath>
-      </Reference>
+        <Reference Include="VintagestoryAPI">
+            <HintPath>libraries\VintagestoryAPI.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="DiscordRichPresence" Version="1.2.1.24" />
+        <PackageReference Include="DiscordRichPresence" Version="1.6.1.70"/>
     </ItemGroup>
-    
+
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <PropertyGroup>
             <ModFolder>$(AppData)\VintagestoryData\Mods\$(ProjectName)</ModFolder>
         </PropertyGroup>
-        <RemoveDir Directories="$(ModFolder)" />
-        <MakeDir Directories="$(ModFolder)" />
-        <Copy SourceFiles="$(TargetDir)\VS-DiscordRPC.dll" DestinationFolder="$(ModFolder)" />
-        <Copy SourceFiles="$(SolutionDir)\libraries\DiscordRPC.dll" DestinationFolder="$(ModFolder)" />
-        <Copy SourceFiles="$(SolutionDir)modinfo.json" DestinationFolder="$(ModFolder)" />
+        <RemoveDir Directories="$(ModFolder)"/>
+        <MakeDir Directories="$(ModFolder)"/>
+        <Copy SourceFiles="$(TargetDir)\VS-DiscordRPC.dll" DestinationFolder="$(ModFolder)"/>
+        <Copy SourceFiles="$(SolutionDir)\libraries\DiscordRPC.dll" DestinationFolder="$(ModFolder)"/>
+        <Copy SourceFiles="$(SolutionDir)modinfo.json" DestinationFolder="$(ModFolder)"/>
     </Target>
 
 </Project>
