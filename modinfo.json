@@ -2,13 +2,13 @@
   "type": "code",
   "name": "Discord Rich Presence",
   "modid": "discordrichpresence",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Adds Discord Rich Presence support to Vintage Story",
-  "side":  "Client",
+  "side": "Client",
   "authors": [
     "Muddxyii"
   ],
   "dependencies": {
-    "game": "1.21.0"
+    "game": "1.21.6"
   }
 }
